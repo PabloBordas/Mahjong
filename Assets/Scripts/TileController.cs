@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class TileController : MonoBehaviour
 {
-    public int row;
-    public int column;
     public int tileID = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector2 location = new Vector2();
 
     void OnMouseDown()
     {
-        transform.parent.GetComponent<GameController>().recentlyClicked = gameObject;
-        transform.parent.GetComponent<GameController>().CheckClick();
+        if(!MenuController.GameIsPaused){
+            transform.parent.GetComponent<GameController>().recentlyClicked = gameObject;
+            transform.parent.GetComponent<GameController>().CheckClick();
+        }
     }
 }
